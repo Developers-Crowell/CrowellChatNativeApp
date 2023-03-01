@@ -1,0 +1,35 @@
+project = CrowellChatQtClient
+description = CrowellChatQtClient Reference Documentation
+version = 0.1.0
+
+examplesinstallpath = CrowellChatQtClient/examples
+
+outputformats = HTML
+
+qhp.projects = CrowellChatQtClient
+
+qhp.CrowellChatQtClient.file = CrowellChatQtClient.qhp
+qhp.CrowellChatQtClient.namespace = CrowellChatQtClient
+qhp.CrowellChatQtClient.virtualFolder = CrowellChatQtClient
+qhp.CrowellChatQtClient.indexTitle = CrowellChatQtClient
+qhp.CrowellChatQtClient.indexRoot =
+
+sources.fileextentions = "*.cpp *.qdoc *.qml *.mm"
+headers.fileextentions = "*.h *.ch *.h++ *.hh *.hpp *.hxx"
+examples.fileextentions = "*.qml *.cpp *.js *.html *.css *.qdoc *.mm *.xq"
+
+includepath += include
+includepath += lib/closer/include
+includepath += lib/greeter/include
+includepath += ui
+
+headerdirs += include
+headerdirs += lib/closer/include/src
+
+sourcedirs += ui/pages
+sourcedirs += lib/closer/include/src/caller
+sourcedirs += ui
+
+exampledirs += examples
+
+outputdir += docs
