@@ -8,7 +8,7 @@ import dev.crowell.crowellchatqtclient.CrowellChatQtClient_ui 0.1
 \qmltype HelloWorld
 \inqmlmodule dev.crowell.crowellchatqtclient.CrowellChatQtClient_ui
 \inherits Item
-\brief Displays a simple rectangle containing the text "Hello World"
+\brief Displays a simple rectangle containing the text "Hello World".
 
 The HelloWorld type displays rectangle containing the text "Hello World" with a button to close.
 
