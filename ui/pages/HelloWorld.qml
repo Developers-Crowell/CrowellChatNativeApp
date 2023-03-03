@@ -1,6 +1,9 @@
 import QtQuick
 import QtQuick.Controls
 
+import dev.crowell.crowellchatqtclient.CrowellChatQtClient_ui 0.1
+
+
 /*!
 \qmltype HelloWorld
 \inqmlmodule dev.crowell.crowellchatqtclient.CrowellChatQtClient_ui
@@ -24,8 +27,12 @@ Item {
     property var greeter: null
     property var closer: null
     property alias mainButton: closeButton
+    property var theme: null
 
     signal close()
+
+    CrowellChatTheme {}
+
 
     onClose: {
         closer != null ? closer.close() : alert("No closer set")
@@ -33,13 +40,13 @@ Item {
 
     Rectangle {
         id: mainWindowBackground
-        color: '#000000'
+        color: theme.primary_color
         anchors.fill: parent
     }
 
     Text {
         id: mainWindowText
-        color: '#FFFFFF'
+        color: theme.tertiary_color
         anchors.centerIn: parent
         text: qsTr(greeter ? greeter.greet() : "Hello World!")
         font.pointSize: 72
@@ -50,7 +57,7 @@ Item {
         height: 75
         width: 150
         background: Rectangle {
-            color: '#C4C4C4'
+            color: theme.secondary_color
 
             anchors {
                 fill: parent

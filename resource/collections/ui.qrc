@@ -5,4 +5,7 @@
     <qresource prefix="ui/pages/">
         <file alias="HelloWorld.qml">../../ui/pages/HelloWorld.qml</file>
     </qresource>
+    <qresource prefix="ui/components/">
+        <file alias="CrowellChatTheme.qml">../../ui/components/CrowellChatTheme.qml</file>
+    </qresource>
 </RCC>

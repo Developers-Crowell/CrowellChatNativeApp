@@ -12,23 +12,35 @@ Window {
     width: (Screen.width / 3) * 2
     height: (Screen.height / 3) * 2
     visible: true
-    title:qsTr('CrowellChatQtClient')
+    title:qsTr('CrowellChat')
 
-    HelloWorld {
-        id: helloWorld
+    Loader {
+        id: loader
         anchors.fill: parent
+    }
 
-        greeter: Greeter {
-            id: greeter
-        }
+    CrowellChatTheme {
+        id: style
+    }
 
-        closer: Closer {
-            id: closer
+    Component {
+        id: helloWorldComponent
+        HelloWorld {
+            id: helloWorld
+
+            theme: style
+
+            greeter: Greeter {
+                id: greeter
+            }
+
+            closer: Closer {
+                id: closer
+            }
         }
     }
 
     Component.onCompleted: {
-        x = screen.virtualX + ((screen.width - width) / 2)
-        y = screen.virtualY + ((screen.height - height) / 2)
+        loader.sourceComponent = helloWorldComponent
     }
 }
