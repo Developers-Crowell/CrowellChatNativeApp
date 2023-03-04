@@ -4,8 +4,12 @@
     </qresource>
     <qresource prefix="ui/pages/">
         <file alias="HelloWorld.qml">../../ui/pages/HelloWorld.qml</file>
+        <file alias="LoginPage.qml">../../ui/pages/LoginPage.qml</file>
+        <file alias="HomePage.qml">../../ui/pages/HomePage.qml</file>
     </qresource>
     <qresource prefix="ui/components/">
         <file alias="CrowellChatTheme.qml">../../ui/components/CrowellChatTheme.qml</file>
+        <file alias="LoginForm.qml">../../ui/components/LoginForm.qml</file>
+
     </qresource>
 </RCC>

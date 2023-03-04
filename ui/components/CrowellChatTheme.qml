@@ -12,6 +12,9 @@ Item {
     readonly property color secondary_color_selected: Qt.lighter(secondary_color, 0.8)
     readonly property color tertiary_color_selected: Qt.lighter(tertiary_color, 0.8)
 
+    // Alert Colors
+    readonly property color error_color: Qt.rgba(255/255, 0/255, 0/255, 1)
+
     // Fonts
     readonly property font default_font: Qt.font({family: "Roboto", pixelSize: 14, weight: Font.Normal, styleName: "Regular"})
     readonly property font title_font: Qt.font({family: "Roboto", pixelSize: 20, weight: Font.Bold, styleName: "Bold"})
