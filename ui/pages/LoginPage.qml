@@ -24,6 +24,7 @@ Item {
         LoginForm {
                id: loginForm
                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+               Layout.margins: 0
         }
     }
 }
