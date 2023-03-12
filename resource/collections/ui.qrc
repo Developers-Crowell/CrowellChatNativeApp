@@ -10,6 +10,7 @@
     <qresource prefix="ui/components/">
         <file alias="CrowellChatTheme.qml">../../ui/components/CrowellChatTheme.qml</file>
         <file alias="LoginForm.qml">../../ui/components/LoginForm.qml</file>
-
+        <file alias="Header.qml">../../ui/components/Header.qml</file>
+        <file alias="Footer.qml">../../ui/components/Footer.qml</file>
     </qresource>
 </RCC>

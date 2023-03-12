@@ -14,6 +14,8 @@ ApplicationWindow {
     visible: true
     title: qsTr('CrowellChat')
 
+    signal logout();
+
     function calculateMinimumHeight() {
         return (Screen.height / 3)
     }
@@ -33,6 +35,14 @@ ApplicationWindow {
         }
     }
 
+    Connections {
+        target: page2
+        function onLogout() {
+            stackView.pop()
+            root.logout()
+        }
+    }
+
     StackView {
         id: stackView
         initialItem: loginPage
@@ -46,10 +56,16 @@ ApplicationWindow {
 
     }
 
-    // Define the LoginForm component as a separate QML file
     LoginPage {
         id: loginPage
         visible: false
+
+        Connections {
+            target: root
+            function onLogout() {
+                loginPage.onLogout()
+            }
+        }
     }
 
     HomePage {

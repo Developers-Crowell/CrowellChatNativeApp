@@ -11,28 +11,42 @@ Item {
     property alias errorMessage: errorText.text
     signal submit(string username, string password)
 
+    function logout() {
+        usernameField.text = "";
+        passwordField.text = "";
+        errorText.text = "";
+        usernameField.forceActiveFocus();
+    }
+
+    function onSubmit(username, password) {
+        errorText.text = "";
+        root.submit(username, password);
+        usernameField.text = "";
+        passwordField.text = "";
+    }
+
+    Component.onCompleted: {
+        usernameField.forceActiveFocus();
+    }
+
+    Connections {
+        target: usernameField
+        function onAccepted() {
+               passwordField.forceActiveFocus();
+        }
+    }
+
+    Connections {
+        target: passwordField
+        function onAccepted() {
+               root.onSubmit(usernameField.text, passwordField.text)
+        }
+    }
+
     ColumnLayout {
         id: loginLayout
         anchors.fill: parent
         spacing: 0
-
-        Component.onCompleted: {
-            usernameField.forceActiveFocus();
-        }
-
-        Connections {
-            target: usernameField
-            function onAccepted() {
-                   passwordField.forceActiveFocus();
-            }
-        }
-
-        Connections {
-            target: passwordField
-            function onAccepted() {
-                   root.submit(usernameField.text, passwordField.text);
-            }
-        }
 
         TextField {
             id: usernameField
@@ -59,13 +73,13 @@ Item {
                 color: theme.secondary_color
                 }
 
-            onClicked: (usernameField.text !== "" && passwordField.text !== "") ? root.submit(usernameField.text, passwordField.text) : {}
+            onClicked: () => (usernameField.text !== "" && passwordField.text !== "") ? root.submit(usernameField.text, passwordField.text) : {};
         }
 
         Text {
             id: errorText
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
+            Layout.fillWidth: true
             text: ''
             font.pixelSize: 24
             color: theme.error_color

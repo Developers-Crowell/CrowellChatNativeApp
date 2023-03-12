@@ -7,15 +7,21 @@ import dev.crowell.crowellchatqtclient.CrowellChatQtClient_ui 0.1
 Item {
     id: root
     property alias errorMessage: loginForm.errorMessage
+
     signal login(var username, var password)
+    signal logout()
+
+    function onLogout() {
+        root.logout()
+    }
 
     Connections {
         target: loginForm
         function onSubmit(username, password) {
-            console.log("Username: " + username + " Password: " + password)
             root.login(username, password)
         }
     }
+
 
     ColumnLayout {
         id: loginFormLayout
@@ -25,6 +31,13 @@ Item {
                id: loginForm
                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                Layout.margins: 0
+
+            Connections {
+                target: root
+                function onLogout() {
+                    loginForm.logout()
+                }
+            }
         }
     }
 }
