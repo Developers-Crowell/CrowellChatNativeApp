@@ -42,15 +42,17 @@ Item {
 
     ColumnLayout {
         id: columnLayout
-        anchors.fill: parent
+        anchors {
+            top: headerSeparator.bottom
+            bottom: footerSeparator.top
+            left: parent.left
+            right: parent.right
+        }
 
-        Text {
-            id: motd
-
-            text: "Welcome to CrowellChat!"
-            font.pixelSize: 24
-            color: "white"
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        ConversationList {
+            id: conversations
+            Layout.fillHeight: true
+            Layout.fillWidth: true
         }
     }
 
