@@ -47,8 +47,20 @@ set(SRC_FILES
 list(APPEND ${PROJECT_NAME}_SOURCES ${SRC_FILES})
 
 set(Q_OBJECT_HEADERS
-
+    include/src/app/models/chat_message.h
+    include/src/app/models/impl/chat_message_impl.h
+    include/src/app/models/impl/chatter_identity_impl.h
+    include/src/app/models/impl/chatter_impl.h
+    include/src/app/models/impl/cognomen_impl.h
+    include/src/app/models/impl/contact_information_impl.h
+    include/src/app/models/impl/conversation_impl.h
+    include/src/app/models/impl/email_address_impl.h
+    include/src/app/models/impl/login_request_impl.h
+    include/src/app/models/impl/phone_number_impl.h
+    include/src/app/models/impl/praenomen_impl.h
 )
+GET_FILES(Q_OBJECT_HEADERS ${CMAKE_SOURCE_DIR}/include "*.h")
+
 list(APPEND ${PROJECT_NAME}_SOURCES ${Q_OBJECT_HEADERS})
 
 qt_add_resources(${PROJECT_NAME}_SOURCES
