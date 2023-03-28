@@ -17,7 +17,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(${PROJECT_NAME}_PROPERTIES "")
 set(${PROJECT_NAME}_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/include)
+
 GET_FILES(${PROJECT_NAME}_SOURCES ${CMAKE_SOURCE_DIR}/src "*.cpp")
+GET_FILES(Q_OBJECT_HEADERS ${CMAKE_SOURCE_DIR}/include "*.h")
 
 ADD_QT_MODULES(${PROJECT_NAME} Core Quick)
 CONFIGURE_QT(${PROJECT_NAME})
@@ -42,25 +44,12 @@ else()
 endif()
 
 set(SRC_FILES
-    src/app/main.cpp
 )
 list(APPEND ${PROJECT_NAME}_SOURCES ${SRC_FILES})
 
 set(Q_OBJECT_HEADERS
-    include/src/app/models/chat_message.h
-    include/src/app/models/impl/chat_message_impl.h
-    include/src/app/models/impl/chatter_identity_impl.h
-    include/src/app/models/impl/chatter_impl.h
-    include/src/app/models/impl/cognomen_impl.h
-    include/src/app/models/impl/contact_information_impl.h
-    include/src/app/models/impl/conversation_impl.h
-    include/src/app/models/impl/email_address_impl.h
-    include/src/app/models/impl/login_request_impl.h
-    include/src/app/models/impl/phone_number_impl.h
-    include/src/app/models/impl/praenomen_impl.h
-)
-GET_FILES(Q_OBJECT_HEADERS ${CMAKE_SOURCE_DIR}/include "*.h")
 
+)
 list(APPEND ${PROJECT_NAME}_SOURCES ${Q_OBJECT_HEADERS})
 
 qt_add_resources(${PROJECT_NAME}_SOURCES
